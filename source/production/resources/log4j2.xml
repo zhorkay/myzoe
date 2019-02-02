@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="DEBUG">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFile name="MyZoe" fileName="../logs/myzoe.log"
+                     filePattern="../logs/myzoe-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%t] %X{id} %X{username} %-5level %c{36} %l: %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy min="1" max="4" />
+        </RollingFile>
+        <RollingFile name="MyZoeSQL" fileName="../logs/myzoesql.log"
+                     filePattern="../logs/myzoesql-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%t] %X{id} %X{username} %-5level %c{36} %l: %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy min="1" max="4" />
+        </RollingFile>
+        <RollingFile name="MyZoeInfo" fileName="../logs/myzoeinfo.log"
+                     filePattern="../logs/myzoeinfo-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%t] %X{id} %X{username} %-5level %c{36} %l: %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy min="1" max="4" />
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <logger name="org.hibernate" level="ALL" additivity="true">
+            <appender-ref ref="MyZoe" />
+        </logger>
+        <logger name="io.myzoe" level="DEBUG" additivity="true">
+            <appender-ref ref="MyZoe" />
+        </logger>
+        <logger name="org.apache" level="DEBUG" additivity="true" >
+            <appender-ref ref="MyZoe" />
+        </logger>
+        <logger name="org.springframework" level="DEBUG" additivity="true" >
+            <appender-ref ref="MyZoe" />
+        </logger>
+        <root level="DEBUG">
+            <appender-ref ref="Console" />
+        </root>
+    </loggers>
+</configuration>
+
