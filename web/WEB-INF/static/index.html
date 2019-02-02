@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="myZoeDiaryApp">
+<head>
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Spring Security OAuth</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/png"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/angular-timeline.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/angular-timeline-bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/angular-timeline-extension.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/angular-timeline-animations.css" type="text/css"/>
+    <script src="/static/ngmodules/angular.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-resource.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-cookies.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-route.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-ui-router.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-animate.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/jquery.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angulargrid.js" type="application/javascript"></script>
+    <script src="/static/components/common/app.js" type="application/javascript"></script>
+    <script src="/static/components/auth/auth-controllers.js" type="application/javascript"></script>
+    <script src="/static/components/auth/auth-services.js" type="application/javascript"></script>
+    <script src="/static/components/auth/auth-constants.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/angular-timeline.js" type="application/javascript"></script>
+    <script src="/static/ngmodules/ng-infinite-scroll.js" type="application/javascript"></script>
+
+        <link rel="stylesheet" href="/static/css/skel-noscript.css" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/style-desktop.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/static/css/ie/v9.css" /><![endif]-->
+    <link rel="stylesheet" href="/static/css/style-gallery.css" type="text/css">
+</head>
+<body ng-controller="ApplicationCtrl" class="homepage">
+    <!-- Header -->
+    <div id="header">
+        <div id="logo-wrapper">
+            <div class="container">
+
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="/">Zoe's Baby Diary</a></h1>
+                    <span>Design by MyZoe</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li ui-sref-active="active"><a ui-sref="home" href="#">Homepage</a></li>
+                    <li ui-sref-active="active"><a ui-sref="gallery" href="#">Gallery</a></li>
+                    <li ui-sref-active="active"><a ui-sref="timeline" href="#">Timeline</a></li>
+                    <li><a href="two-sidebars.html">Two Sidebars</a></li>
+                    <li><a href="no-sidebar.html">No Sidebar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Header -->
+
+    <!-- Banner -->
+    <div id="banner">
+        <span class="avatar">
+            <img src="/static/images/frontface.jpg">
+        </span>
+    </div>
+    <!-- /Banner -->
+
+<div class="container">
+    <div ng-show="authenticated">Teszt: Logged in</div>
+    <div ng-hide="authenticated">Teszt: Logged out</div>
+    <div>User: {{currentUser}}</div>
+    <div>User Roles: {{currentUser.authorities}}</div>
+</div>
+<div class="container">
+    <ul>
+        <li><a class="btn btn-primary" ui-sref="home">Home UI-Route</a></li>
+        <li><a class="btn btn-primary" ui-sref="login">Login UI-Route</a></li>
+    </ul>
+
+
+</div>
+<div class="gallery-container" ui-view></div>
+<div login-dialog ng-if="!isLoginState()"></div>
+</body>
+</html>

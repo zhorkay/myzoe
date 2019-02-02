@@ -1,0 +1,18 @@
+<ul class="dynamic-grid" angular-grid="galleryPosts" ag-grid-width="300" ag-gutter-size="10" ag-id="gallery"
+    ag-refresh-on-img-load="true" ag-infinite-scroll="loadMorePosts()" >
+    <li ng-repeat="post in galleryPosts" class="grid">
+        <img src="{{post.postSourceText}}" class="grid-img" />
+        <div class="caption">
+            <div class="title">
+                {{post.postName}}
+            </div>
+            <div class="uploaded-date">
+                Uploaded on : {{post.updatedAt | date: "yyyy.MM.dd HH:mm:ss"}} {{post.updatedBy}}
+            </div>
+            <div class="likes-watch-wrap">
+                <div class="caption"><span class="glyphicon glyphicon-thumbs-up"></span> 15</div>
+                <div class="caption"><span class="glyphicon glyphicon-eye-open"></span> 151</div>
+            </div>
+        </div>
+    </li>
+</ul>

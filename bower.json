@@ -1,0 +1,28 @@
+{
+  "name": "myzoe-baby-diary",
+  "description": "MyZoe Baby Diary",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "zoltan.horkay@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "web/WEB-INF/static/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.3",
+    "angular-route": "1.5.3",
+    "angular-resource": "1.5.3",
+    "angular-cookies": "1.5.3",
+    "angular-ui-router": "^0.2.18"
+  }
+}

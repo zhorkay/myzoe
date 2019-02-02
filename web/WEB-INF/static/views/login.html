@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="col-sm-12">Login</h1>
+    <form name="loginForm" class="col-sm-6" ng-submit="login()" novalidate>
+        <div class="col-sm-12 form-group">
+            <label for="username" class="col-sm-3">Username</label>
+            <input id="username" class="form-control" type="text"
+                   name="username" ng-model="loginData.username"/>
+        </div>
+
+        <div class="col-sm-12 form-group">
+            <label for="password" class="col-sm-3">Password</label>
+            <input id="password" class="form-control" type="password"
+                   name="password" ng-model="loginData.password"/>
+        </div>
+
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+    <div class="container">
+        <a href="http://localhost:8080/auth/facebook" target="_self" class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook login</a>
+    </div>
+</div>
+<div class="container col-lg-1">
+    <div class="container col-sm-6">
+        <a class="btn btn-primary" ng-click="getUser()">Get User</a>
+    </div>
+    <div class="col-sm-6" ng-if="principal">{{principal}}</div>
+</div>
