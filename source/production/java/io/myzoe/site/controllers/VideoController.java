@@ -85,4 +85,22 @@ public class VideoController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
+    //-------------------Update a Video-----------------------------------------------------------------
+
+    @RequestMapping(value = "/video/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Video> updateVideo(@PathVariable("id") long id,
+                                             @RequestBody Video video)
+    {
+        Video currentVideo = this.videoService.getVideo(id);
+
+        if (currentVideo == null)
+        {
+            Log.debug("[MYZOE]: Video does not exist: {}.", id);
+            return new ResponseEntity<Video>(HttpStatus.NOT_FOUND);
+        }
+
+        this.videoService.update(video);
+        Log.debug("[MYZOE]: Video updated: {}.", id);
+        return new ResponseEntity<Video>(video, HttpStatus.OK);
+    }
 }
